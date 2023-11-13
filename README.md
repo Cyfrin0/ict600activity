@@ -40,6 +40,7 @@ CREATE TABLE yourname( -- also replace your actual name here
 9. Double Click the name of your **Folder**
 10. Pa-check mo na kay Sir!!! :grin:	
 
-
+### VIDEO GUIDE :blush:
+[![Video guide](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2FJYJSnEO.jpg&f=1&nofb=1&ipt=a5ae643627d798e1455ea3e028568c7db99e18083a37a9c98c74fabef12b4fde&ipo=images)](https://vimeo.com/884096552)
 
 
