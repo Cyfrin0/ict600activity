@@ -9,7 +9,8 @@ CREATE DATABASE students_yourname;
 
 USE students_yourname; -- replace yourname with your actual name
 
-CREATE TABLE yourname( -- should be tbe same as what is in " " at the $table_name	id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE yourname( -- should be tbe same as what is in " " at the $table_name
+	id INT PRIMARY KEY AUTO_INCREMENT,
 	userlevel VARCHAR (10),
 	studentNumber VARCHAR(13),
 	fullName VARCHAR(150),
