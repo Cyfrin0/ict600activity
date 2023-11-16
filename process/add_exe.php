@@ -7,16 +7,19 @@ include_once('../config/database.php');
 $table_name     = "";
 
 // INCLUDE IN HERE "" THE VARIABLES(COLUMNS) YOU USE IN YOUR DATABASE, MAKE SURE THE SPELLING IS THE SAME.
-$full_name      = "";
-$student_number = "";
-$midterm_grade  = "";
-$final_grade    = "";
-$date_created   = "";
+// DON'T NEED TO CHANGE ANYTHING BELOW if you follow the CREATE DATABASE in README.md
+$user_level     = "userlevel";
+$student_number = "studentNumber";
+$full_name      = "fullName";
+$midterm_grade  = "midtermGrade";
+$final_grade    = "finalGrade";
+$date_created   = "dateCreated";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fullName = $_POST['fullName'];
+    $userlevel = $_POST["userlevel"];
     $studentNumber = $_POST['studentNumber'];
+    $fullName = $_POST['fullName'];
     $midtermGrade = $_POST['midtermGrade'];
     $finalGrade = $_POST['finalGrade'];
 
@@ -25,21 +28,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'err_studentNumber' => '',
         'err_midtermGrade' => '',
         'err_finalGrade' => '',
-        'err_userLevel' => '',
     ];
     
 
     // Validation
-    if (empty($fullName)) {
+    if (empty($full_name)) {
         $err['err_fullName'] = "Your Full Name cannot be blank.";
     }
-    if (empty($studentNumber)) {
+    if (empty($student_number)) {
         $err['err_studentNumber'] = "Student Number cannot be blank.";
     }
-    if (empty($midtermGrade)) {
+    if (empty($midterm_grade)) {
         $err['err_midtermGrade'] = "Midterm Grade cannot be blank.";
     }
-    if (empty($finalGrade)) {
+    if (empty($final_grade)) {
         $err['err_finalGrade'] = "Final Grade cannot be blank.";
     }
     
@@ -48,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dateCreated = date('Y-m-d');
 
         $query = "INSERT INTO $table_name (
+            $user_level,
             $full_name,
             $student_number,
             $midterm_grade,
@@ -55,8 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $date_created
         )
         VALUES (
+            '$userlevel', 
             '$fullName', 
-            '$studentNumber',
+            '$studentNumber',   
             '$midtermGrade',
             '$finalGrade',
             '$dateCreated')";
