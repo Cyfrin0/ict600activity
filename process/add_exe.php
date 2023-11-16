@@ -4,19 +4,21 @@ session_start();
 include_once('../config/database.php');
 
 // SPECIFY IN HERE "" THE NAME OF YOUR TABLE FROM YOUR DATABASE.
-$table_name     = "";
-
+$table_name     = "";   
 // INCLUDE IN HERE "" THE VARIABLES(COLUMNS) YOU USE IN YOUR DATABASE, MAKE SURE THE SPELLING IS THE SAME.
-$full_name      = "";
-$student_number = "";
-$midterm_grade  = "";
-$final_grade    = "";
-$date_created   = "";
+// DON'T NEED TO CHANGE ANYTHING BELOW if you follow the CREATE DATABASE in README.md
+$user_level     = "userlevel";
+$student_number = "studentNumber";
+$full_name      = "fullName";
+$midterm_grade  = "midtermGrade";
+$final_grade    = "finalGrade";
+$date_created   = "dateCreated";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fullName = $_POST['fullName'];
+    $userlevel = $_POST["userlevel"];
     $studentNumber = $_POST['studentNumber'];
+    $fullName = $_POST['fullName'];
     $midtermGrade = $_POST['midtermGrade'];
     $finalGrade = $_POST['finalGrade'];
 
@@ -25,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'err_studentNumber' => '',
         'err_midtermGrade' => '',
         'err_finalGrade' => '',
-        'err_userLevel' => '',
     ];
     
 
@@ -48,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dateCreated = date('Y-m-d');
 
         $query = "INSERT INTO $table_name (
+            $user_level,
             $full_name,
             $student_number,
             $midterm_grade,
@@ -55,8 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $date_created
         )
         VALUES (
+            '$userlevel', 
             '$fullName', 
-            '$studentNumber',
+            '$studentNumber',   
             '$midtermGrade',
             '$finalGrade',
             '$dateCreated')";
