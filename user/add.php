@@ -17,8 +17,19 @@
         }
     }
     ?>
-    <h1>User's Information</h1>
+    <h1>Student's Information</h1>
     <form action="../process/add_exe.php" method="post">
+        // di na need ng check_error for user level since may "required" attribute na siya
+    <div> 
+            <label for="">User Level</label>
+            <select name="userlevel" id="" required>
+                <option value="">Select</option>
+                <option value="admin">Admin</option>
+                <option value="it_admin">IT Admin</option>
+                <option value="user">Student</option>
+            </select>
+        </div>
+
         <div>
             <label for="">Student Number:*</label>
             <input type="text" name="studentNumber" id="">
@@ -46,8 +57,8 @@
             ?>
         </div>
 
-        <input type="submit" value="Register">
+        <input type="submit" value="Register">    
     </form>
-</body>
+</body> 
 
 </html>
